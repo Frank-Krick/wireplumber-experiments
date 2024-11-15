@@ -1,0 +1,5 @@
+Core.require_api("default-nodes", "logging-api", function(...)
+	log = Log.open_topic("s-experiment-one")
+	log:info("Experiment 01")
+	Core.quit()
+end)
