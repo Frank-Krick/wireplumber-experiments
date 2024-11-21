@@ -1,0 +1,17 @@
+{
+  "node.description": "pmx-1 channel strip",
+  "filter.graph": {
+    "nodes": [
+      {
+        "type": "lv2",
+        "name": "Compressor",
+        "plugin": "http://calf.sourceforge.net/plugins/Compressor"
+      }
+    ],
+    "links": [],
+    "inputs": [],
+    "outputs": []
+  },
+  "capture.props": {},
+  "playback.props": {}
+}

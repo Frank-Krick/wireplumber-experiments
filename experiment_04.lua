@@ -24,22 +24,25 @@ end)
 out_ports_object_manager:activate()
 --]]
 
-metadata_object_manager = ObjectManager({
+object_manager = ObjectManager({
 	Interest({
 		type = "metadata",
+		Constraint({ "metadata.name", "equals", "default" }),
 	}),
 })
 
-metadata_object_manager:connect("installed", function(om)
+object_manager:connect("installed", function(om)
 	print("\nMetadata:")
-	for obj in om:iterate() do
-		local global_props = obj["global-properties"]
-
-		print("\n")
-		for key, value in pairs(global_props) do
-			print("\t" .. key .. ": " .. value)
-		end
+	for metadata in om:iterate(Interest({ type = "metadata" })) do
+		local global_props = metadata["global-properties"]
+		local success, result = pcall(function()
+			metadata:find(0, "default.audio.sink")
+		end)
+		print(success)
+		print(result)
+		local value = metadata:find(65, "active")
+		print(value)
 	end
 end)
 
-metadata_object_manager:activate()
+object_manager:activate()
