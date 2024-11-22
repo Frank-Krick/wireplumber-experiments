@@ -1,4 +1,18 @@
-# Wireplumber Tips
+# Tips
+
+## Pipewire
+
+Interact with pipewire using `pw-cli`
+
+For example, to list objects:
+
+- Open the command line interface `pw-cli`
+- List objects ls
+
+`/usr/share/pipewire` contains all the default setup, among them example filter
+chains.
+
+## Wireplumber
 
 Execute lua scripts with `wpexec`
 
